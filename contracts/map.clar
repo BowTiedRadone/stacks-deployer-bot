@@ -1,0 +1,8 @@
+(map not (list true false true false)) ;; Returns (false true false true)
+(map + (list 1 2 3) (list 1 2 3) (list 1 2 3)) ;; Returns (3 6 9)
+(define-private (a-or-b (char (string-utf8 1))) 
+  (if (is-eq char u"a") u"a" u"b"))
+(map a-or-b u"aca") ;; Returns (u"a" u"b" u"a")
+(define-private (zero-or-one (char (buff 1))) 
+  (if (is-eq char 0x00) 0x00 0x01))
+(map zero-or-one 0x000102) ;; Returns (0x00 0x01 0x01)

@@ -1,0 +1,1 @@
+(define-constant bad-rocket-transfer-err (err 2))

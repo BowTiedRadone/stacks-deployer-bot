@@ -1,0 +1,1 @@
+(define-constant err-unknown-listing (err u2000))

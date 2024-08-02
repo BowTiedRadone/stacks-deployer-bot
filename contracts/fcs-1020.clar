@@ -1,0 +1,1 @@
+(define-constant unauthorized-mint-err   (err u3))

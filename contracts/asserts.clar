@@ -1,0 +1,1 @@
+(asserts! (is-eq 1 1) (err 1)) ;; Returns true

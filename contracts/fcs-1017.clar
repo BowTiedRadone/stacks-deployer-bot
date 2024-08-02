@@ -1,0 +1,5 @@
+(define-constant no-such-rocket-err      (err 1))
+(define-constant bad-rocket-transfer-err (err 2))
+(define-constant unauthorized-mint-err   (err u3))
+(define-constant factory-already-set-err (err 4))
+(define-constant factory-not-set-err (err 5))

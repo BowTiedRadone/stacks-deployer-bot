@@ -1,0 +1,1 @@
+(define-constant err-not-token-owner (err u101))

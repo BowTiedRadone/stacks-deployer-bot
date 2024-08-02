@@ -1,0 +1,7 @@
+(to-consensus-buff? 1) ;; Returns (some 0x0000000000000000000000000000000001)
+(to-consensus-buff? u1) ;; Returns (some 0x0100000000000000000000000000000001)
+(to-consensus-buff? true) ;; Returns (some 0x03)
+(to-consensus-buff? false) ;; Returns (some 0x04)
+(to-consensus-buff? none) ;; Returns (some 0x09)
+(to-consensus-buff? 'SZ2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKQ9H6DPR) ;; Returns (some 0x051fa46ff88886c2ef9762d970b4d2c63678835bd39d)
+(to-consensus-buff? { abc: 3, def: 4 }) ;; Returns (some 0x0c00000002036162630000000000000000000000000000000003036465660000000000000000000000000000000004)

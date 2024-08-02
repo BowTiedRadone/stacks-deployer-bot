@@ -1,0 +1,1 @@
+(define-data-var total-supply uint u30)

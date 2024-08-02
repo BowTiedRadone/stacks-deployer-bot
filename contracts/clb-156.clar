@@ -1,0 +1,1 @@
+(define-constant err-asset-contract-not-whitelisted (err u2007))

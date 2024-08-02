@@ -1,0 +1,1 @@
+(define-non-fungible-token names (buff 50))

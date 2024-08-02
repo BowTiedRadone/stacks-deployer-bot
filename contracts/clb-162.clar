@@ -1,0 +1,22 @@
+(define-private (sum-values-iter (current uint) (previous uint))
+    (+ previous current)
+)
+
+(define-read-only (sum-values (values (list 10 uint)))
+    (fold sum-values-iter values u0)
+)
+
+(define-read-only (sum-values-unwind (values (list 10 uint)))
+    (+
+        (default-to u0 (element-at values u0))
+        (default-to u0 (element-at values u1))
+        (default-to u0 (element-at values u2))
+        (default-to u0 (element-at values u3))
+        (default-to u0 (element-at values u4))
+        (default-to u0 (element-at values u5))
+        (default-to u0 (element-at values u6))
+        (default-to u0 (element-at values u7))
+        (default-to u0 (element-at values u8))
+        (default-to u0 (element-at values u9))
+    )
+)

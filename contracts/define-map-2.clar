@@ -1,0 +1,8 @@
+(define-map squares { x: int } { square: int })
+(define-private (add-entry (x int)) 
+  (map-insert squares { x: 2 } { square: (* x x) }))
+(add-entry 1)
+(add-entry 2)
+(add-entry 3)
+(add-entry 4)
+(add-entry 5)

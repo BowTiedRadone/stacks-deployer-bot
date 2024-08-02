@@ -1,0 +1,1 @@
+(define-constant no-such-rocket-err      (err 1))

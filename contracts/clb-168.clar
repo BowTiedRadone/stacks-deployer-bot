@@ -1,0 +1,8 @@
+(define-public (transfer (token-id uint) (sender principal) (recipient principal))
+    (if (and (is-eq tx-sender sender))
+        (match (nft-transfer? my-nft token-id sender recipient)
+            success (ok success)
+            error (err error))
+        (err u500)
+    )
+)

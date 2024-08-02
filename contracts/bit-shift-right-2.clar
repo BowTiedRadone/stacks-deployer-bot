@@ -1,0 +1,10 @@
+(bit-shift-right 2 u1) ;; Returns 1
+(bit-shift-right 128 u2) ;; Returns 32
+(bit-shift-right -64 u1) ;; Returns -32
+(bit-shift-right u128 u2) ;; Returns u32
+(bit-shift-right 123 u9999999999) ;; Returns 0
+(bit-shift-right u123 u9999999999) ;; Returns u0
+(bit-shift-right -128 u7) ;; Returns -1
+(bit-shift-right -256 u1) ;; Returns -128
+(bit-shift-right 5 u2) ;; Returns 1
+(bit-shift-right -5 u2) ;; Returns -2

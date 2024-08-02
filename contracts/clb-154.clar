@@ -1,0 +1,1 @@
+(define-constant err-maker-taker-equal (err u2005))

@@ -1,0 +1,1 @@
+(as-contract tx-sender)

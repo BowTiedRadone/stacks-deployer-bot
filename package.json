@@ -1,0 +1,19 @@
+{
+  "name": "stacks-deployer-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BowTiedRadone",
+  "license": "ISC",
+  "dependencies": {
+    "@stacks/network": "^6.16.0",
+    "@stacks/transactions": "^6.16.1",
+    "@stacks/wallet-sdk": "^6.16.1",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "typescript": "^5.5.4"
+  }
+}

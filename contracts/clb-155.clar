@@ -1,0 +1,1 @@
+(define-constant err-unintended-taker (err u2006))

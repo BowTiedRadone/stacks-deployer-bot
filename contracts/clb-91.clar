@@ -1,0 +1,1 @@
+(define-constant err-votes-required-not-met (err u104))

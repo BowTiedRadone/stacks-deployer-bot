@@ -1,0 +1,5 @@
+(define-data-var size int 0)
+(define-private (set-size (value int))  
+  (var-set size value))
+(set-size 1)
+(set-size 2)
