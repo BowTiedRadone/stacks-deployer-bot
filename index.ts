@@ -20,6 +20,7 @@ const mnemo = process.env.MNEMONIC;
 const frequency = process.env.FREQUENCY
   ? parseInt(process.env.FREQUENCY)
   : 60000;
+const fee = process.env.FEE ? parseInt(process.env.FEE) : 10000;
 
 const welcomeLog = () => {
   console.log("\nReady to deploy. Environment:\n");
@@ -73,7 +74,7 @@ async function deployContract(
       senderKey: account.privKey,
       clarityVersion: 3 as ClarityVersion,
       nonce: account.nonce,
-      fee: 3000,
+      fee,
       anchorMode: "any",
     });
 
