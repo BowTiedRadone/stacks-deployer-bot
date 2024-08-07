@@ -22,7 +22,7 @@ const frequency = process.env.FREQUENCY
   : 60000;
 
 const welcomeLog = () => {
-  console.log("Deployment session started. Environment:\n");
+  console.log("\nReady to deploy. Environment:\n");
   console.log("Api:", apiUrl);
   console.log("Mnemonic:", mnemo);
   console.log(`Frequency: ${frequency}ms`, "\n");
@@ -78,9 +78,16 @@ async function deployContract(
     });
 
     const broadcastTx = await broadcastTransaction(tx, network);
+    console.log(
+      "--------------------------------------------------------------------------"
+    );
     console.log(`Contract ${contractName} deployed successfully!`);
     console.log("Nonce:", account.nonce);
+    console.log("Fee:", tx.auth.spendingCondition.fee.toString());
     console.log("Transaction:", broadcastTx);
+    console.log(
+      "--------------------------------------------------------------------------"
+    );
 
     await logDeployment(contractName, broadcastTx.txid);
   } catch (error: any) {
@@ -102,37 +109,34 @@ async function main() {
 
     welcomeLog();
 
-    const contractFiles = await getContractFiles();
     const wallet = await generateWallet({
       secretKey: mnemo,
       password: "123456",
     });
     const privKey = wallet.accounts[0].stxPrivateKey;
 
-    for (const { filePath, contractName } of contractFiles) {
-      const account = {
-        privKey: privKey,
-        stxAddress: getAddressFromPrivateKey(
-          privKey,
-          TransactionVersion.Testnet
-        ),
-        nonce: Number(
-          await getNonce(
-            getAddressFromPrivateKey(privKey, TransactionVersion.Testnet),
-            network
-          )
-        ),
-      };
-      const deploymentName = `${contractName}-${Date.now()}`;
-      await deployContract(filePath, deploymentName, account);
+    const account = {
+      privKey: privKey,
+      stxAddress: getAddressFromPrivateKey(privKey, TransactionVersion.Testnet),
+      nonce: Number(
+        await getNonce(
+          getAddressFromPrivateKey(privKey, TransactionVersion.Testnet),
+          network
+        )
+      ),
+    };
 
-      console.log(
-        `Waiting for ${frequency / 1000}s before deploying the next contract...`
-      );
-      await new Promise((resolve) => setTimeout(resolve, frequency));
-    }
+    const contractFiles = await getContractFiles();
+    const randomIndex = Math.floor(Math.random() * contractFiles.length);
+    const { filePath, contractName } = contractFiles[randomIndex];
+    const deploymentName = `${contractName}-${Date.now()}`;
 
-    console.log("All contracts deployed");
+    await deployContract(filePath, deploymentName, account);
+
+    console.log(
+      `Waiting for ${frequency / 1000}s before deploying the next contract...`
+    );
+    await new Promise((resolve) => setTimeout(resolve, frequency));
   } catch (error: any) {
     console.error("Error running the deployment script:", error);
     await logError(`Error running the deployment script: ${error.message}`);
