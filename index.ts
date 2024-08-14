@@ -10,6 +10,7 @@ import {
   ClarityVersion,
 } from "@stacks/transactions";
 import { generateWallet } from "@stacks/wallet-sdk";
+import axios from "axios";
 
 dotenv.config();
 
@@ -28,6 +29,15 @@ const welcomeLog = () => {
   console.log("Mnemonic:", mnemo);
   console.log(`Frequency: ${frequency}ms`, "\n");
 };
+
+async function getContractInterface(
+  contractAddress: string,
+  contractName: string
+) {
+  return await axios.get(
+    `${apiUrl}/v2/contracts/interface/${contractAddress}/${contractName}`
+  );
+}
 
 async function getContractFiles() {
   const directory = "./contracts";

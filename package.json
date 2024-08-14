@@ -12,6 +12,7 @@
     "@stacks/network": "^6.16.0",
     "@stacks/transactions": "^6.16.1",
     "@stacks/wallet-sdk": "^6.16.1",
+    "axios": "^1.7.4",
     "dotenv": "^16.4.5",
     "fs": "^0.0.1-security",
     "typescript": "^5.5.4"
